@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    background: #3a3a3a;
+    min-height: 100%;
+}
+
+.mech-counter {
+    position: absolute;
+    top: 50vh;
+    left: 0;
+    right: 0;
+    text-align: center;
+    -webkit-perspective: 1000px;
+}
+
+.digit {
+    font-family: Monaco;
+    color: rgba(164,164,164,0.9);
+    font-size: 3rem;
+    line-height: 3rem;
+    display: inline-block;
+    text-align: center;
+    padding: 0.5rem 0.3rem;
+    margin: 0 0.1rem;
+    background: linear-gradient(#5a5a5a, #000);
+    position: relative;
+    z-index: 1;
+}
+.digit:before {
+    padding: 0.5rem 0.3rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgba(192,192,192,0.9);
+    bottom: 50%;
+    overflow: hidden;
+    content: attr(data-value);
+    border-bottom: 1px solid rgba(192,192,192,0.7);
+    -webkit-transform-origin-y: 100%;
+    -webkit-transform: rotateX(0deg);
+    
+    background: linear-gradient(#5a5a5a, #3a3a3a);
+}
+
+.digit.anim:before {
+    -webkit-animation: flip 1s 2s alternate infinite;
+}
+
+
+@-webkit-keyframes flip {
+    from {
+        -webkit-transform: rotateX(0deg);
+    }
+    to {
+        -webkit-transform: rotateX(-180deg);
+    }
+}
+
+
+
